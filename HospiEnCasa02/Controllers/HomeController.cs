@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace HospiEnCasa02.Controllers
 {
-    //Prueba
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
