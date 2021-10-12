@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//pruebaaaaaaaaaaaaaaa//
 namespace HospiEnCasa02Entity.Entity
 {
    public class PacienteEntity { 
