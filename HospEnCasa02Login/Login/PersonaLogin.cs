@@ -18,22 +18,51 @@ namespace HospEnCasa02Login.Login
 
             foreach (var personaBD in personaDataBase) 
             {
-                PersonaEntity personaEntity = new PersonaEntity();
 
-                personaEntity.Id = personaBD.Id;
-                personaEntity.Nombre = personaBD.Nombre;
-                personaEntity.Apellido = personaBD.Apellido;
-                personaEntity.Telefono = personaBD.Telefono;
-                personaEntity.Genero = personaBD.Genero;
-                personaEntity.FechaNacimiento = personaBD.FechaNacimiento;
-                personaEntity.Correo = personaBD.Correo;
-
-
-                personaEntities.Add(personaEntity);
+                personaEntities.Add(convertirPersonaBaseDatosToPersonaEntity(personaBD));
 
             }
             return personaEntities;
 
-        } 
+        }
+
+        public PersonaEntity addPerson(PersonaEntity personaEntity) {
+
+            hospiCasa01Context.Personas.Add(convertirPersonaEntityToPersonaBaseDatos(personaEntity));
+            hospiCasa01Context.SaveChanges();
+
+            return personaEntity;
+        }
+
+        public Persona convertirPersonaEntityToPersonaBaseDatos(PersonaEntity personaEntity) {
+
+            Persona persona = new Persona();
+
+            persona.Id = personaEntity.Id;
+            persona.Nombre = personaEntity.Nombre;
+            persona.Apellido = personaEntity.Apellido;
+            persona.Telefono = personaEntity.Telefono;
+            persona.Genero = personaEntity.Genero;
+            persona.FechaNacimiento = personaEntity.FechaNacimiento;
+            persona.Correo = personaEntity.Correo;
+
+            return persona;
+        }
+
+        public PersonaEntity convertirPersonaBaseDatosToPersonaEntity(Persona persona)
+        {
+
+            PersonaEntity personaEntity = new PersonaEntity();
+
+            personaEntity.Id = persona.Id;
+            personaEntity.Nombre = persona.Nombre;
+            personaEntity.Apellido = persona.Apellido;
+            personaEntity.Telefono = persona.Telefono;
+            personaEntity.Genero = persona.Genero;
+            personaEntity.FechaNacimiento = persona.FechaNacimiento;
+            personaEntity.Correo = persona.Correo;
+
+            return personaEntity;
+        }
     }
 }

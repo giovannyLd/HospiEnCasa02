@@ -26,7 +26,7 @@ namespace HospiEnCasa02.Controllers
 
         public IActionResult Index()
         {
-
+            //giovanny
             ///esto es una prueba leroleor
             return View(personaLogin.persona());
 

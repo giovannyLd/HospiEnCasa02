@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiEnCasa02Entity.Entity.PersonaEntity>
+﻿@model IEnumerable<HospiEnCasa02Entity.Entity.CiudadEntity>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,22 +16,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaNacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Correo)
+                @Html.DisplayNameFor(model => model.NombreCiudad)
             </th>
             <th></th>
         </tr>
@@ -43,22 +28,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
+                @Html.DisplayFor(modelItem => item.NombreCiudad)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

@@ -31,9 +31,31 @@ namespace HospEnCasa02Login.Login
                 ListpacienteEntities.Add(pacienteEntity);
 
             }
-
-
             return ListpacienteEntities;
+        }
+
+        public PacienteEntity addPaciente(PacienteEntity pacienteEntity) {
+
+            pacienteDBContext.Pacientes.Add(converPacienteEntityToPacienteBD(pacienteEntity));
+            pacienteDBContext.SaveChanges();
+
+            return pacienteEntity;
+        }
+
+
+        public Paciente converPacienteEntityToPacienteBD(PacienteEntity pacienteEntity) {
+
+            Paciente paciente = new Paciente();
+
+            paciente.Id = pacienteEntity.Id;
+            paciente.IdCasaPaciente = pacienteEntity.IdCasaPaciente;
+           // paciente.IdEnfermera = pacienteEntity.IdEnfermera;
+           // paciente.IdMedico = pacienteEntity.IdMedico;
+            paciente.IdFamiliarDesignado = pacienteEntity.IdFamiliarDesignado;
+            paciente.IdSignosVitales = pacienteEntity.IdSignosVitales;
+            paciente.IdPersona = pacienteEntity.IdPersona;
+
+            return paciente;
         }
     }
 }
