@@ -10,7 +10,7 @@ namespace HospEnCasa02Login.Login
 {
     public class CasaPacienteLogin
     {
-
+        //prueba giova
         hospiCasa01Context hospiCasa01Context = new hospiCasa01Context();
         public List<CasaPacienteEntity> casaPaciente()
         {
@@ -20,7 +20,6 @@ namespace HospEnCasa02Login.Login
 
             foreach (var casaPacienteBD in casaPacienteBaseDatos)
             {
-
                 CasaPacienteEntity casaPacienteEntity = new CasaPacienteEntity();
 
                 casaPacienteEntity.Id = casaPacienteBD.Id;
@@ -34,6 +33,28 @@ namespace HospEnCasa02Login.Login
             }
 
             return casaPacienteEntities;
+        }
+
+        public CasaPacienteEntity addCasaPaciente(CasaPacienteEntity casaPacienteEntity) {
+
+            hospiCasa01Context.CasaPacientes.Add(convercasaPacienteentityToCasaPacienteBD(casaPacienteEntity));
+            hospiCasa01Context.SaveChanges();
+
+            return casaPacienteEntity;
+        }
+
+
+        public CasaPaciente convercasaPacienteentityToCasaPacienteBD(CasaPacienteEntity casaPacienteEntity) {
+
+            CasaPaciente casaPaciente = new CasaPaciente();
+
+            casaPaciente.Id = casaPacienteEntity.Id;
+            casaPaciente.IdCiudad = casaPacienteEntity.IdCiudad;
+            casaPaciente.Latitud = casaPacienteEntity.Latitud;
+            casaPaciente.Longitud = casaPacienteEntity.Longitud;
+            casaPaciente.Direccion = casaPacienteEntity.Direccion;
+
+            return casaPaciente;
         }
     }
 }
