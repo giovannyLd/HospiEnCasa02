@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiEnCasa02Entity.Entity.CiudadEntity>
+﻿@model IEnumerable<HospiEnCasa02Entity.Entity.SugerenciasCuidadoEntity>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,16 +7,22 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="CreateSugernciaCuidado">Sugerencia cuidado</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.IdSignosVitales)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreCiudad)
+                @Html.DisplayNameFor(model => model.FechaHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnostico)
             </th>
             <th></th>
         </tr>
@@ -25,10 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.IdSignosVitales)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreCiudad)
+                @Html.DisplayFor(modelItem => item.FechaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diagnostico)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

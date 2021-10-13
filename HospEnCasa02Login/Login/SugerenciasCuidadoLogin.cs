@@ -32,5 +32,28 @@ namespace HospEnCasa02Login.Login
 
             return sugerenciasCuidadoEntities;
         }
+
+        public SugerenciasCuidadoEntity addSugerenciasCuidad(SugerenciasCuidadoEntity sugerenciasCuidado) {
+
+            hospiCasa01Context.SugerenciasCuidados.Add(converSugereciasEntityASugerenciasBaseDatos(sugerenciasCuidado));
+            hospiCasa01Context.SaveChanges();
+
+            return sugerenciasCuidado;
+        }
+
+        public SugerenciasCuidado converSugereciasEntityASugerenciasBaseDatos(SugerenciasCuidadoEntity sugerenciasCuidadoEntity) {
+
+            SugerenciasCuidado sugerenciasCuidado = new SugerenciasCuidado();
+
+            sugerenciasCuidado.Descripcion = sugerenciasCuidadoEntity.Descripcion;
+            sugerenciasCuidado.Diagnostico = sugerenciasCuidadoEntity.Diagnostico;
+            sugerenciasCuidado.FechaHora = sugerenciasCuidadoEntity.FechaHora;
+            sugerenciasCuidado.IdSignosVitales = sugerenciasCuidadoEntity.IdSignosVitales;
+
+
+            return sugerenciasCuidado;
+        
+        
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace HospiEnCasa02.Controllers
         private PacienteLogin pacienteLogin = new PacienteLogin();
         private CasaPacienteLogin casaPacienteLogin = new CasaPacienteLogin();
         private CiudadLogin ciudadLogin = new CiudadLogin();
+        private SugerenciasCuidadoLogin sugerenciasCuidadoLogin = new SugerenciasCuidadoLogin();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -28,7 +29,7 @@ namespace HospiEnCasa02.Controllers
         {
             //giovanny
             ///esto es una prueba leroleor
-            return View(personaLogin.persona());
+            //return View(personaLogin.persona());
 
             // PacienteLogin pacienteLogin = new PacienteLogin();
             //return View(pacienteLogin.paciente());
@@ -51,8 +52,8 @@ namespace HospiEnCasa02.Controllers
             // SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
             //return View(signoVitalesLogin.SignosVitales());
 
-            //SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
-            //return View(sugerenciasCuidado.sugerenciasCuidado());
+            SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
+            return View(sugerenciasCuidado.sugerenciasCuidado());
 
         }
 
@@ -62,11 +63,19 @@ namespace HospiEnCasa02.Controllers
 
             return View();
         }
+
         [HttpPost]
         public IActionResult CreatePersona(PersonaEntity personaEntity) {
             personaLogin.addPerson(personaEntity);
             return View(personaEntity);
         }
+
+
+
+
+
+
+
 
         public IActionResult CreatePaciente()
         {
@@ -105,6 +114,26 @@ namespace HospiEnCasa02.Controllers
         {
             ciudadLogin.addCiudad(ciudadEntity);
             return View(ciudadEntity);
+        }
+
+
+
+
+        public IActionResult CreateSugernciaCuidado()
+        {
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult CreateSugernciaCuidado(SugerenciasCuidadoEntity sugerenciaCuidadoEntity)
+            
+        {
+            sugerenciasCuidadoLogin.addSugerenciasCuidad(sugerenciaCuidadoEntity);
+
+
+            return View(sugerenciaCuidadoEntity);
         }
 
 
