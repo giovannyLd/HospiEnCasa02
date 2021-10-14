@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiEnCasa02Entity.Entity.SugerenciasCuidadoEntity>
+﻿@model IEnumerable<HospiEnCasa02Entity.Entity.SignosVitaleEntity>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,22 +7,37 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="CreateSugernciaCuidado">Sugerencia cuidado</a>
+    <a asp-action="CreateSignosVitales">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdSignosVitales)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaHora)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                @Html.DisplayNameFor(model => model.Oximetria)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diagnostico)
+                @Html.DisplayNameFor(model => model.FrecuenciaRespiratoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrecuenciaCardiaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PresionArterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glicemias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPaciente)
             </th>
             <th></th>
         </tr>
@@ -31,16 +46,31 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdSignosVitales)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaHora)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
+                @Html.DisplayFor(modelItem => item.Oximetria)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Diagnostico)
+                @Html.DisplayFor(modelItem => item.FrecuenciaRespiratoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrecuenciaCardiaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PresionArterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glicemias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPaciente)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

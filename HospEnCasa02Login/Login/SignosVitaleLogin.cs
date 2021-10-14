@@ -37,6 +37,38 @@ namespace HospEnCasa02Login.Login
             }
                 return signosVitaleEntities;
             }
+
+
+        public SignosVitaleEntity addSignosVitales(SignosVitaleEntity signosVitalesEntity) {
+
+            hospiCasa01Context.SignosVitales.Add(converSignosVitalesEntityToSignosVitalesDataBase(signosVitalesEntity));
+            hospiCasa01Context.SaveChanges();
+
+
+            return signosVitalesEntity;
+        }
+
+        public SignosVitale converSignosVitalesEntityToSignosVitalesDataBase(SignosVitaleEntity signosVitaleEntity)
+        {
+
+            SignosVitale signosVitales = new SignosVitale();
+
+            signosVitales.FechaHora = signosVitaleEntity.FechaHora;
+            signosVitales.FrecuenciaCardiaca = signosVitaleEntity.FrecuenciaCardiaca;
+            signosVitales.FrecuenciaRespiratoria = signosVitaleEntity.FrecuenciaRespiratoria;
+            signosVitales.Glicemias = signosVitaleEntity.Glicemias;
+            signosVitales.Id = signosVitaleEntity.Id;
+            signosVitales.IdPaciente = signosVitaleEntity.IdPaciente;
+            signosVitales.Oximetria = signosVitaleEntity.Oximetria;
+            signosVitales.PresionArterial = signosVitaleEntity.PresionArterial;
+            signosVitales.Temperatura = signosVitaleEntity.Temperatura;
+
+
+            return signosVitales;
+        
+        
+
+        }
         
         }
     }

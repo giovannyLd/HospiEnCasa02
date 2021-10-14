@@ -19,6 +19,7 @@ namespace HospiEnCasa02.Controllers
         private CasaPacienteLogin casaPacienteLogin = new CasaPacienteLogin();
         private CiudadLogin ciudadLogin = new CiudadLogin();
         private SugerenciasCuidadoLogin sugerenciasCuidadoLogin = new SugerenciasCuidadoLogin();
+        private SignosVitaleLogin signosVitaleLogin = new SignosVitaleLogin();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -47,17 +48,17 @@ namespace HospiEnCasa02.Controllers
             //return View(casaPacienteLogin.casaPaciente());
 
             //CiudadLogin ciudadLogin = new CiudadLogin();
-           // return View(ciudadLogin.ciudad());
+            // return View(ciudadLogin.ciudad());
 
-            // SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
-            //return View(signoVitalesLogin.SignosVitales());
+            SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
+            return View(signoVitalesLogin.SignosVitales());
 
-            SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
-            return View(sugerenciasCuidado.sugerenciasCuidado());
+            //SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
+            //return View(sugerenciasCuidado.sugerenciasCuidado());
 
         }
 
-   
+
 
         public IActionResult CreatePersona() {
 
@@ -128,13 +129,26 @@ namespace HospiEnCasa02.Controllers
 
         [HttpPost]
         public IActionResult CreateSugernciaCuidado(SugerenciasCuidadoEntity sugerenciaCuidadoEntity)
-            
+
         {
             sugerenciasCuidadoLogin.addSugerenciasCuidad(sugerenciaCuidadoEntity);
-
-
             return View(sugerenciaCuidadoEntity);
         }
+
+        public IActionResult CreateSignosVitales() {
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult CreateSignosVitales(SignosVitaleEntity signosVitalesEntity) {
+
+            signosVitaleLogin.addSignosVitales(signosVitalesEntity);
+
+            return View(signosVitalesEntity);
+        }
+
 
 
     }
