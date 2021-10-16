@@ -18,7 +18,8 @@ namespace HospEnCasa02Login.Login
 
             var enfermeraBaseDatos = hospiCasa01Context.Enfermeras;
 
-            foreach (var enfermeraBD in enfermeraBaseDatos) {
+            foreach (var enfermeraBD in enfermeraBaseDatos) 
+            {
 
                 EnfermeraEntity enfermeraEntity = new EnfermeraEntity();
 
@@ -32,6 +33,28 @@ namespace HospEnCasa02Login.Login
 
             return listEnfermeraEntities;
 
+
+        }
+        public EnfermeraEntity addEnfermera(EnfermeraEntity enfermera)
+        {
+            hospiCasa01Context.Enfermeras.Add(convertirEnfermeraEntityAEnfermeraBaseDatos(enfermera));
+            hospiCasa01Context.SaveChanges();
+
+            return enfermera;
+        }
+
+
+        public Enfermera convertirEnfermeraEntityAEnfermeraBaseDatos(EnfermeraEntity enfermeraEntity)
+        {
+
+            Enfermera enfermera = new Enfermera(); //se crea el objeto
+
+            enfermera.HorasLaborales = enfermeraEntity.HorasLaborales;
+            enfermera.Id = enfermeraEntity.Id;
+            enfermera.TarjetaProfesional = enfermeraEntity.TarjetaProfesional;
+            enfermera.IdPersona = enfermeraEntity.IdPersona;
+
+            return enfermera;
 
         }
     }

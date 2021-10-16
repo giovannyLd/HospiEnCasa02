@@ -20,6 +20,7 @@ namespace HospiEnCasa02.Controllers
         private CiudadLogin ciudadLogin = new CiudadLogin();
         private SugerenciasCuidadoLogin sugerenciasCuidadoLogin = new SugerenciasCuidadoLogin();
         private SignosVitaleLogin signosVitaleLogin = new SignosVitaleLogin();
+        private EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -35,8 +36,8 @@ namespace HospiEnCasa02.Controllers
             // PacienteLogin pacienteLogin = new PacienteLogin();
             //return View(pacienteLogin.paciente());
 
-            //EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
-            //return View(enfermeraLogin.enfermera());
+            EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
+            return View(enfermeraLogin.enfermera());
 
             //MedicoLogin medicoLogin = new MedicoLogin();
             //return View(medicoLogin.medico());
@@ -50,8 +51,8 @@ namespace HospiEnCasa02.Controllers
             //CiudadLogin ciudadLogin = new CiudadLogin();
             // return View(ciudadLogin.ciudad());
 
-            SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
-            return View(signoVitalesLogin.SignosVitales());
+            //SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
+            //return View(signoVitalesLogin.SignosVitales());
 
             //SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
             //return View(sugerenciasCuidado.sugerenciasCuidado());
@@ -70,12 +71,6 @@ namespace HospiEnCasa02.Controllers
             personaLogin.addPerson(personaEntity);
             return View(personaEntity);
         }
-
-
-
-
-
-
 
 
         public IActionResult CreatePaciente()
@@ -102,7 +97,6 @@ namespace HospiEnCasa02.Controllers
             casaPacienteLogin.addCasaPaciente(casaPacienteEntity);
             return View(casaPacienteEntity);
         }
-
 
 
         public IActionResult CreateCiudad()
@@ -149,7 +143,18 @@ namespace HospiEnCasa02.Controllers
             return View(signosVitalesEntity);
         }
 
+        public IActionResult CreateEnfermera()
+        {
 
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateEnfermera(EnfermeraEntity enfermeraEntity)
+        {
+            enfermeraLogin.addEnfermera(enfermeraEntity);
+
+            return View(enfermeraEntity);
+        }
 
     }
 }
