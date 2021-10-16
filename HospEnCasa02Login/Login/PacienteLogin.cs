@@ -49,8 +49,8 @@ namespace HospEnCasa02Login.Login
 
             paciente.Id = pacienteEntity.Id;
             paciente.IdCasaPaciente = pacienteEntity.IdCasaPaciente;
-           // paciente.IdEnfermera = pacienteEntity.IdEnfermera;
-           // paciente.IdMedico = pacienteEntity.IdMedico;
+            paciente.IdEnfermera = pacienteEntity.IdEnfermera;
+            paciente.IdMedico = pacienteEntity.IdMedico;
             paciente.IdFamiliarDesignado = pacienteEntity.IdFamiliarDesignado;
             paciente.IdSignosVitales = pacienteEntity.IdSignosVitales;
             paciente.IdPersona = pacienteEntity.IdPersona;

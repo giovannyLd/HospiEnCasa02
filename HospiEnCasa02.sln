@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospiEnCasa02", "HospiEnCasa02\HospiEnCasa02.csproj", "{8EB55C6C-9CEC-43FE-9ACE-18FBC4189212}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospEnCasa02Login", "HospEnCasa02Login\HospEnCasa02Login.csproj", "{ABCE7E00-2C01-45E0-814A-C9C598FD2D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospEnCasa02Login", "HospEnCasa02Login\HospEnCasa02Login.csproj", "{ABCE7E00-2C01-45E0-814A-C9C598FD2D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospiEnCasa02Entity", "HospiEnCasa02Entity\HospiEnCasa02Entity.csproj", "{18A0759A-93C3-4DD7-A6AB-DFD0BB51B61B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospiEnCasa02Entity", "HospiEnCasa02Entity\HospiEnCasa02Entity.csproj", "{18A0759A-93C3-4DD7-A6AB-DFD0BB51B61B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

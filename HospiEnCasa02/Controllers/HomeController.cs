@@ -33,11 +33,11 @@ namespace HospiEnCasa02.Controllers
             ///esto es una prueba leroleor
             //return View(personaLogin.persona());
 
-            // PacienteLogin pacienteLogin = new PacienteLogin();
-            //return View(pacienteLogin.paciente());
+            PacienteLogin pacienteLogin = new PacienteLogin();
+            return View(pacienteLogin.paciente());
 
-            EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
-            return View(enfermeraLogin.enfermera());
+            //EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
+            //return View(enfermeraLogin.enfermera());
 
             //MedicoLogin medicoLogin = new MedicoLogin();
             //return View(medicoLogin.medico());
@@ -155,6 +155,6 @@ namespace HospiEnCasa02.Controllers
 
             return View(enfermeraEntity);
         }
-
+        
     }
 }
