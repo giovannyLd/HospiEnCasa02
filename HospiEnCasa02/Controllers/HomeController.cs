@@ -21,6 +21,7 @@ namespace HospiEnCasa02.Controllers
         private SugerenciasCuidadoLogin sugerenciasCuidadoLogin = new SugerenciasCuidadoLogin();
         private SignosVitaleLogin signosVitaleLogin = new SignosVitaleLogin();
         private EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
+        private MedicoLogin medicoLogin = new MedicoLogin();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -33,14 +34,14 @@ namespace HospiEnCasa02.Controllers
             ///esto es una prueba leroleor
             //return View(personaLogin.persona());
 
-            PacienteLogin pacienteLogin = new PacienteLogin();
-            return View(pacienteLogin.paciente());
+            //PacienteLogin pacienteLogin = new PacienteLogin();
+            //return View(pacienteLogin.paciente());
 
             //EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
             //return View(enfermeraLogin.enfermera());
 
-            //MedicoLogin medicoLogin = new MedicoLogin();
-            //return View(medicoLogin.medico());
+            MedicoLogin medicoLogin = new MedicoLogin();
+            return View(medicoLogin.medico());
 
             // FamiliarDesignadoLogin medicoLogin = new FamiliarDesignadoLogin();
             //return View(medicoLogin.familiarDesignado());
@@ -155,6 +156,20 @@ namespace HospiEnCasa02.Controllers
 
             return View(enfermeraEntity);
         }
-        
+        public IActionResult CreateMedico()
+        {
+
+            return View();
+
+
+        }
+        [HttpPost]
+        public IActionResult CreateMedico(MedicoEntity medicoEntity)
+
+        {
+            medicoLogin.addMedico(medicoEntity);
+
+            return View(medicoEntity);
+        }
     }
 }

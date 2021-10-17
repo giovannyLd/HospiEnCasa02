@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospiEnCasa02Entity.Entity.PacienteEntity>
+﻿@model IEnumerable<HospiEnCasa02Entity.Entity.MedicoEntity>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,10 +7,8 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class=" btn btn-primary" type ="button"> crear nueva</a>
+    <a asp-action="CreateMedico">Medico</a>
 </p>
-
-
 <table class="table">
     <thead>
         <tr>
@@ -18,19 +16,10 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdCasaPaciente)
+                @Html.DisplayNameFor(model => model.Especialidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdFamiliarDesignado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEnfermera)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdMedico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdSignosVitales)
+                @Html.DisplayNameFor(model => model.TarjetaProfesional)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IdPersona)
@@ -45,19 +34,10 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCasaPaciente)
+                @Html.DisplayFor(modelItem => item.Especialidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdFamiliarDesignado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEnfermera)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdMedico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdSignosVitales)
+                @Html.DisplayFor(modelItem => item.TarjetaProfesional)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdPersona)

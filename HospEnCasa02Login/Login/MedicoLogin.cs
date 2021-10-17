@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace HospEnCasa02Login.Login
 {
-   public  class MedicoLogin
+    public class MedicoLogin
     {
 
         hospiCasa01Context hospiCasa01Context = new hospiCasa01Context();
-        public List<MedicoEntity> medico() {
+        public List<MedicoEntity> medico()
+        {
 
             List<MedicoEntity> medicoEntities = new List<MedicoEntity>();
             var medicoBaseDatos = hospiCasa01Context.Medicos;
 
-            foreach (var medicoBD in medicoBaseDatos) {
+            foreach (var medicoBD in medicoBaseDatos)
+            {
 
                 MedicoEntity medicoEntity = new MedicoEntity();
 
@@ -31,8 +33,29 @@ namespace HospEnCasa02Login.Login
 
             return medicoEntities;
 
+        }
+        public MedicoEntity addMedico(MedicoEntity medico)
+        {
 
-        
+            hospiCasa01Context.Medicos.Add(converMedicoEntityABaseDatos(medico));
+            hospiCasa01Context.SaveChanges();
+
+            return medico;
+        }
+        public Medico converMedicoEntityABaseDatos(MedicoEntity medicoEntity)
+        {
+
+            Medico medico = new Medico();
+
+            medico.Id = medicoEntity.Id;
+            medico.Especialidad = medicoEntity.Especialidad;
+            medico.IdPersona = medicoEntity.IdPersona;
+            medico.TarjetaProfesional = medicoEntity.TarjetaProfesional;
+
+
+            return medico;
+
         }
     }
 }
+
