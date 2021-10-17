@@ -23,6 +23,7 @@ namespace HospiEnCasa02.Controllers
         private EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
         private MedicoLogin medicoLogin = new MedicoLogin();
         private FamiliarDesignadoLogin familiarDesignadoLogin = new FamiliarDesignadoLogin();
+        private LoginLogin loginLogin = new LoginLogin();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -177,8 +178,9 @@ namespace HospiEnCasa02.Controllers
         [HttpPost]
         public IActionResult CreateLogin(LoginEntity loginEntity)
         {
+            loginLogin.logueo(loginEntity);
 
-            return View();
+            return View(loginEntity);
         }
         public IActionResult CreatePruebas()
         {
