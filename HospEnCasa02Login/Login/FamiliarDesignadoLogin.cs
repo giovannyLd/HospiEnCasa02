@@ -32,5 +32,24 @@ namespace HospEnCasa02Login.Login
 
             return familiarDesignadoEntities;
         }
+        public FamiliarDesignadoEntity addfamiliarDesignado(FamiliarDesignadoEntity familiarDesignadoEntity)
+        {
+            hospiCasa01Context.FamiliarDesignados.Add(convertirFamiliarDesignadoEntityABaseDatos(familiarDesignadoEntity));
+            hospiCasa01Context.SaveChanges();
+
+            return familiarDesignadoEntity;
+        }
+        public FamiliarDesignado convertirFamiliarDesignadoEntityABaseDatos(FamiliarDesignadoEntity familiarDesignadoEntity)
+        {
+
+            FamiliarDesignado familiarDesignado = new FamiliarDesignado();
+
+            familiarDesignado.Id = familiarDesignadoEntity.Id;
+            familiarDesignado.IdPersona = familiarDesignadoEntity.IdPersona;
+            familiarDesignado.Parentesco = familiarDesignadoEntity.Parentesco;
+
+            return familiarDesignado;
+        }
     }
+
 }
