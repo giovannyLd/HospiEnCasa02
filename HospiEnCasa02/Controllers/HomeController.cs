@@ -29,37 +29,15 @@ namespace HospiEnCasa02.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            //giovanny
-            ///esto es una prueba leroleor
-            //return View(personaLogin.persona());
+     
 
-            //PacienteLogin pacienteLogin = new PacienteLogin();
-            //return View(pacienteLogin.paciente());
+            public IActionResult index()
+            {
 
-            //EnfermeraLogin enfermeraLogin = new EnfermeraLogin();
-            //return View(enfermeraLogin.enfermera());
+                return View();
+            }
 
-            //MedicoLogin medicoLogin = new MedicoLogin();
-            //return View(medicoLogin.medico());
-
-            FamiliarDesignadoLogin medicoLogin = new FamiliarDesignadoLogin();
-            return View(medicoLogin.familiarDesignado());
-
-            // CasaPacienteLogin casaPacienteLogin = new CasaPacienteLogin();
-            //return View(casaPacienteLogin.casaPaciente());
-
-            //CiudadLogin ciudadLogin = new CiudadLogin();
-            // return View(ciudadLogin.ciudad());
-
-            //SignosVitaleLogin signoVitalesLogin = new SignosVitaleLogin();
-            //return View(signoVitalesLogin.SignosVitales());
-
-            //SugerenciasCuidadoLogin sugerenciasCuidado = new SugerenciasCuidadoLogin();
-            //return View(sugerenciasCuidado.sugerenciasCuidado());
-
-        }
+        
 
 
 
@@ -189,6 +167,32 @@ namespace HospiEnCasa02.Controllers
             return View(familiarDesignadoEntity);
         }
 
+
+        public IActionResult CreateLogin()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateLogin(LoginEntity loginEntity)
+        {
+
+            return View();
+        }
+        public IActionResult CreatePruebas()
+        {
+
+            return View();
+        }
+
+
+
+        public IActionResult CreatePruebas(LoginEntity loginEntity)
+        {
+
+            return View(loginEntity);
+        }
 
 
     }

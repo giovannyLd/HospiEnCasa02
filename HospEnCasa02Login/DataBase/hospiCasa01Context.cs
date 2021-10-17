@@ -32,7 +32,7 @@ namespace HospEnCasa02Login.DataBase
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer("Server=LILIANA;Database=hospiCasa01;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-F6UQNN1;Database=hospiCasa01;Trusted_Connection=True;");
             }
         }
 

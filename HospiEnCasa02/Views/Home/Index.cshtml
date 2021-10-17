@@ -1,47 +1,42 @@
-﻿@model IEnumerable<HospiEnCasa02Entity.Entity.FamiliarDesignadoEntity>
-
+﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Hola Mundo!</title>
+</head>
+<body class="p-3 mb-2 bg-primary text-warning">
 
-<p>
-    <a asp-action="CreateFamiliarDesignado">Familiar Designado</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parentesco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdPersona)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parentesco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPersona)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+    <h1>HOSPITAL EN CASA</h1>
+    <br />
+    <br />
+
+    <p class="">
+        <a asp-action="CreateLogin" class="btn btn-primary" type="button">Login</a>
+
+
+        <a asp-action="CreatePruebas" class="btn btn-primary" type="button">Pruebas</a>
+        <a asp-action="CreatePersona" class="btn btn-primary" type="button">Registrarse</a>
+        <a asp-action="CreatePaciente" class="btn btn-primary" type="button">Paciente</a>
+        <a asp-action="CreateCasaPaciente" class="btn btn-primary" type="button">CasaPaciente</a>
+        <a asp-action="CreateCiudad" class="btn btn-primary" type="button">CreateCiudad</a>
+        <a asp-action="CreateSugernciaCuidado" class="btn btn-primary" type="button">SugerenciasCuidado</a>
+        <a asp-action="CreateSignosVitales" class="btn btn-primary" type="button">SignosVitales</a>
+        <a asp-action="CreateEnfermera" class="btn btn-primary" type="button">Enfermera</a>
+    </p>
+
+    <h2><marquee> BIENVENIDOS A HOSPITAL EN CASA  </marquee></h2>
+    <br />
+    <br />
+
+    <img src="@Url.Content("~/img/imagenc1.png")" width="500px" height="400px" alt="imgf" />
+    <img src="@Url.Content("~/img/imagenc8.png")" width="500px" height="400px" alt="imgf" />
+
+</body>
+</html>
+
