@@ -22,7 +22,7 @@ namespace HospEnCasa02Login.DataBase
         public double? Glicemias { get; set; }
         public int? IdPaciente { get; set; }
 
-        public virtual SugerenciasCuidado IdNavigation { get; set; }
+        public virtual SugerenciasCuidado IdPacienteNavigation { get; set; }
         public virtual ICollection<Paciente> Pacientes { get; set; }
     }
 }

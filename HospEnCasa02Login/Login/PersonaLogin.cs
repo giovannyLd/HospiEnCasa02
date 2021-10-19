@@ -11,6 +11,7 @@ namespace HospEnCasa02Login.Login
     public class PersonaLogin
     {
         hospiCasa01Context hospiCasa01Context = new hospiCasa01Context();
+        LoginLogin login = new LoginLogin();
         public List<PersonaEntity> persona() {
 
             List<PersonaEntity> personaEntities= new List<PersonaEntity>();
@@ -18,21 +19,32 @@ namespace HospEnCasa02Login.Login
 
             foreach (var personaBD in personaDataBase) 
             {
-
-                personaEntities.Add(convertirPersonaBaseDatosToPersonaEntity(personaBD));
-
+                 personaEntities.Add(convertirPersonaBaseDatosToPersonaEntity(personaBD));
             }
             return personaEntities;
+       }
 
-        }
+
 
         public PersonaEntity addPerson(PersonaEntity personaEntity) {
 
-            hospiCasa01Context.Personas.Add(convertirPersonaEntityToPersonaBaseDatos(personaEntity));
-            hospiCasa01Context.SaveChanges();
 
-            return personaEntity;
-        }
+            PersonaEntity personaId = new PersonaEntity();
+
+            if (persona().Where(x => x.Id == personaEntity.Id).Any()) {
+
+               
+                personaId.Mensaje = "Usuario ya exite en la base de datos ";
+                personaId.tipo = "danger";
+                return personaId;
+            }
+                hospiCasa01Context.Personas.Add(convertirPersonaEntityToPersonaBaseDatos(personaEntity));
+                hospiCasa01Context.SaveChanges();
+                personaEntity.Mensaje = "Usuario guardado en base de datos con exito ";
+                personaEntity.tipo = "success";
+
+                return personaEntity;
+            }
 
         public Persona convertirPersonaEntityToPersonaBaseDatos(PersonaEntity personaEntity) {
 
@@ -45,6 +57,7 @@ namespace HospEnCasa02Login.Login
             persona.Genero = personaEntity.Genero;
             persona.FechaNacimiento = personaEntity.FechaNacimiento;
             persona.Correo = personaEntity.Correo;
+            persona.Password = personaEntity.Password;
 
             return persona;
         }
@@ -64,5 +77,6 @@ namespace HospEnCasa02Login.Login
 
             return personaEntity;
         }
+        
     }
 }

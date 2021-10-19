@@ -11,7 +11,7 @@ namespace HospEnCasa02Login.DataBase
         {
             Pacientes = new HashSet<Paciente>();
         }
-        //medico
+
         public int Id { get; set; }
         public string Especialidad { get; set; }
         public string TarjetaProfesional { get; set; }

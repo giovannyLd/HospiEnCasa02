@@ -21,6 +21,7 @@ namespace HospEnCasa02Login.DataBase
         public virtual DbSet<Ciudad> Ciudads { get; set; }
         public virtual DbSet<Enfermera> Enfermeras { get; set; }
         public virtual DbSet<FamiliarDesignado> FamiliarDesignados { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Medico> Medicos { get; set; }
         public virtual DbSet<Paciente> Pacientes { get; set; }
         public virtual DbSet<Persona> Personas { get; set; }
@@ -31,7 +32,7 @@ namespace HospEnCasa02Login.DataBase
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-F6UQNN1;Database=hospiCasa01;Trusted_Connection=True;");
             }
         }
@@ -118,6 +119,26 @@ namespace HospEnCasa02Login.DataBase
                     .WithMany(p => p.FamiliarDesignados)
                     .HasForeignKey(d => d.IdPersona)
                     .HasConstraintName("FK_familiarDesignado_Persona");
+            });
+
+            modelBuilder.Entity<Login>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Login");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(60)
+                    .IsUnicode(false)
+                    .HasColumnName("password")
+                    .IsFixedLength(true);
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.Id)
+                    .HasConstraintName("FK_Login_Persona");
             });
 
             modelBuilder.Entity<Medico>(entity =>
@@ -229,6 +250,12 @@ namespace HospEnCasa02Login.DataBase
                     .HasMaxLength(50)
                     .HasColumnName("nombre");
 
+                entity.Property(e => e.Password)
+                    .HasMaxLength(60)
+                    .IsUnicode(false)
+                    .HasColumnName("password")
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.Telefono)
                     .HasMaxLength(50)
                     .HasColumnName("telefono");
@@ -260,10 +287,10 @@ namespace HospEnCasa02Login.DataBase
 
                 entity.Property(e => e.Temperatura).HasColumnName("temperatura");
 
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.SignosVitale)
-                    .HasForeignKey<SignosVitale>(d => d.Id)
-                    .HasConstraintName("FK_signosVitales_sugerenciasCuidado");
+                entity.HasOne(d => d.IdPacienteNavigation)
+                    .WithMany(p => p.SignosVitales)
+                    .HasForeignKey(d => d.IdPaciente)
+                    .HasConstraintName("FK_signosVitales_sugerenciasCuidado1");
             });
 
             modelBuilder.Entity<SugerenciasCuidado>(entity =>

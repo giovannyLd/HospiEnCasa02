@@ -1,6 +1,7 @@
 ﻿using HospEnCasa02Login.Login;
 using HospiEnCasa02.Models;
 using HospiEnCasa02Entity.Entity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -38,9 +39,16 @@ namespace HospiEnCasa02.Controllers
                 return View();
             }
 
-        
+        public IActionResult datosPersona(string nombre="" ) {
 
-
+            List<PersonaEntity> listPersonaEntities = new List<PersonaEntity>();
+            if (string.IsNullOrEmpty(nombre))  {
+                listPersonaEntities = personaLogin.persona();
+            }
+            else     {
+            listPersonaEntities = personaLogin.persona().Where(x => x.Nombre.ToUpper().Contains(nombre.ToUpper())).ToList();
+            }
+            return View(listPersonaEntities);  }
 
         public IActionResult CreatePersona() {
 
@@ -49,8 +57,28 @@ namespace HospiEnCasa02.Controllers
 
         [HttpPost]
         public IActionResult CreatePersona(PersonaEntity personaEntity) {
-            personaLogin.addPerson(personaEntity);
+           
+            var person = personaLogin.addPerson(personaEntity);
+
+            ViewBag.Message = person.Mensaje;
+            ViewBag.Type = person.tipo;
             return View(personaEntity);
+        }
+
+        public IActionResult CreateLogin(){
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateLogin(LoginEntity loginEntity)
+        {
+            //  var token = loginLogin.logueo(loginEntity);
+
+            //  return View(loginLogin.logueo(loginEntity));
+
+
+            return View(loginEntity);
         }
 
 
@@ -66,7 +94,6 @@ namespace HospiEnCasa02.Controllers
             return View(pacienteEntity);
         }
 
-
         public IActionResult CreateCasaPaciente()
         {
 
@@ -79,7 +106,6 @@ namespace HospiEnCasa02.Controllers
             return View(casaPacienteEntity);
         }
 
-
         public IActionResult CreateCiudad()
         {
 
@@ -91,16 +117,11 @@ namespace HospiEnCasa02.Controllers
             ciudadLogin.addCiudad(ciudadEntity);
             return View(ciudadEntity);
         }
-
-
-
-
         public IActionResult CreateSugernciaCuidado()
         {
 
             return View();
         }
-
 
         [HttpPost]
         public IActionResult CreateSugernciaCuidado(SugerenciasCuidadoEntity sugerenciaCuidadoEntity)
@@ -109,7 +130,6 @@ namespace HospiEnCasa02.Controllers
             sugerenciasCuidadoLogin.addSugerenciasCuidad(sugerenciaCuidadoEntity);
             return View(sugerenciaCuidadoEntity);
         }
-
         public IActionResult CreateSignosVitales() {
 
             return View();
@@ -169,26 +189,12 @@ namespace HospiEnCasa02.Controllers
         }
 
 
-        public IActionResult CreateLogin()
-        {
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateLogin(LoginEntity loginEntity)
-        {
-            loginLogin.logueo(loginEntity);
-
-            return View(loginEntity);
-        }
+        
         public IActionResult CreatePruebas()
         {
 
             return View();
         }
-
-
 
         public IActionResult CreatePruebas(LoginEntity loginEntity)
         {

@@ -22,6 +22,7 @@ namespace HospEnCasa02Login.DataBase
         public string Genero { get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public string Correo { get; set; }
+        public string Password { get; set; }
 
         public virtual ICollection<Enfermera> Enfermeras { get; set; }
         public virtual ICollection<FamiliarDesignado> FamiliarDesignados { get; set; }

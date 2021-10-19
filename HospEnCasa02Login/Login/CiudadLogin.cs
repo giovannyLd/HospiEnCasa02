@@ -10,12 +10,12 @@ namespace HospEnCasa02Login.Login
 {
    public class CiudadLogin
     {
-        hospiCasa01Context hospiCasa01Constext = new hospiCasa01Context();
+        hospiCasa01Context hospiCasa01Context = new hospiCasa01Context();
 
         public List<CiudadEntity> ciudad() {
 
             List<CiudadEntity> ciudadEntities = new List<CiudadEntity>();
-            var ciudadBaseDatos = hospiCasa01Constext.Ciudads;
+            var ciudadBaseDatos = hospiCasa01Context.Ciudads;
 
             foreach (var ciudadBD in ciudadBaseDatos) {
 
@@ -23,7 +23,6 @@ namespace HospEnCasa02Login.Login
 
                 ciudadEntity.Id = ciudadBD.Id;
                 ciudadEntity.NombreCiudad = ciudadBD.NombreCiudad;
-
                 ciudadEntities.Add(ciudadEntity);
             }
 
@@ -34,8 +33,8 @@ namespace HospEnCasa02Login.Login
 
         public CiudadEntity addCiudad(CiudadEntity ciudadEntity) {
 
-            hospiCasa01Constext.Ciudads.Add(convertirCiudadEntityACiudadBD(ciudadEntity));
-            hospiCasa01Constext.SaveChanges();
+            hospiCasa01Context.Ciudads.Add(convertirCiudadEntityACiudadBD(ciudadEntity));
+            hospiCasa01Context.SaveChanges();
 
             return ciudadEntity;
 
@@ -49,6 +48,29 @@ namespace HospEnCasa02Login.Login
             ciudad.NombreCiudad = ciudadEntity.NombreCiudad;
 
             return ciudad;
+        
+        }
+
+        //public List<CiudadEntity>GetAllCiudad(int ciudad)
+        //    {
+
+
+        //    List<CiudadEntity> listCiudadEntity = new List<CiudadEntity>();
+        //    var ciudadDataBase = hospiCasa01Context.Ciudads.Where(x => x.Id == ciudad).ToList();
+
+        //    foreach (var CiudadBD in ciudadDataBase)
+        //    {
+        //        CiudadEntity ciudadEntity = new CiudadEntity();
+        //        ciudadEntity.Id = CiudadBD.Id;
+        //        ciudadEntity.NombreCiudad = CiudadBD.NombreCiudad;
+
+
+        //        var familiarDataBase = hospiCasa01Context.CasaPacientes.Where(x => x.IdCiudad == CiudadBD.Id);
+        //        ciudadEntity.NombreCiudad = CiudadBD.NombreCiudad;
+        //        listCiudadEntity.Add(ciudadEntity);
+           
+        //    }
+
         
         }
 

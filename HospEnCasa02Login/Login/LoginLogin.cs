@@ -10,17 +10,30 @@ namespace HospEnCasa02Login.Login
 {
    public  class LoginLogin
     {
-        hospiCasa01Context hospiBaseDatos = new hospiCasa01Context();
-        public LoginEntity logueo(LoginEntity loginEntity) {
+        hospiCasa01Context hospiBD = new hospiCasa01Context();
 
+        public List<LoginEntity>  logueo(LoginEntity loginEntity)
+        {
 
+            List<LoginEntity> ListaPersona = new List<LoginEntity>();
+            LoginEntity loginEntities = new LoginEntity();
 
-          var hola =   loginEntity.Id;
+            var loginBaseDatos = hospiBD.Personas;
+      
+           foreach (var LoginBD in loginBaseDatos) {
 
+                if (loginEntity.Id == LoginBD.Id) {
 
-            return loginEntity;
+                
+
+                    ListaPersona.Add(loginEntities);
+                       
+                }
+            }
+            return ListaPersona;
 
         }
+
 
     }
 }

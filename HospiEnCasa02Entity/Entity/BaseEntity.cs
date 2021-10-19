@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace HospiEnCasa02Entity.Entity
 {
-    public class LoginEntity
+   public class BaseEntity
     {
-
-
-        public int Id { get; set; }
-   
-        public string Password { get; set; }
+        public string Mensaje { get; set; }
+        public string tipo { get; set; }
     }
 }
