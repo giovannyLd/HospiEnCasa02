@@ -12,11 +12,13 @@ namespace HospEnCasa02Login.Login
     {
         hospiCasa01Context hospiBD = new hospiCasa01Context();
 
-        public List<LoginEntity>  logueo(LoginEntity loginEntity)
+        public bool logueo(LoginEntity loginEntity)
         {
 
-            List<LoginEntity> ListaPersona = new List<LoginEntity>();
-            LoginEntity loginEntities = new LoginEntity();
+
+            var validacion = false;
+           // List<LoginEntity> ListaPersona = new List<LoginEntity>();
+          //  LoginEntity loginEntities = new LoginEntity();
 
             var loginBaseDatos = hospiBD.Personas;
       
@@ -24,13 +26,15 @@ namespace HospEnCasa02Login.Login
 
                 if (loginEntity.Id == LoginBD.Id) {
 
-                
+                    validacion = true;
 
-                    ListaPersona.Add(loginEntities);
+                    return validacion;
+
+                  //  ListaPersona.Add(loginEntities);
                        
                 }
             }
-            return ListaPersona;
+            return validacion;
 
         }
 

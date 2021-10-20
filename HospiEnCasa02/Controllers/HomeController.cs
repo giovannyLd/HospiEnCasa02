@@ -73,12 +73,17 @@ namespace HospiEnCasa02.Controllers
         [HttpPost]
         public IActionResult CreateLogin(LoginEntity loginEntity)
         {
-            //  var token = loginLogin.logueo(loginEntity);
 
-            //  return View(loginLogin.logueo(loginEntity));
+            if (loginLogin.logueo(loginEntity)) 
+            {
 
+                HttpContext.Session.SetString("token", loginEntity.Id.ToString());
+              return   RedirectToAction("CreatePersona", "Home" );
+            }
+            return RedirectToAction("Index", "Home");
 
-            return View(loginEntity);
+         //   return RedirectToAction("Login", "Barbershop", routeValues: new { loginError = "El usuario no existe" });
+
         }
 
 
