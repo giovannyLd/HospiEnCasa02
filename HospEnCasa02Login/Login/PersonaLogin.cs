@@ -34,7 +34,7 @@ namespace HospEnCasa02Login.Login
             if (persona().Where(x => x.Id == personaEntity.Id).Any()) {
 
                
-                personaId.Mensaje = "Usuario ya exite en la base de datos ";
+                personaId.Mensaje = "Usuario ya existe en la base de datos ";
                 personaId.tipo = "danger";
                 return personaId;
             }

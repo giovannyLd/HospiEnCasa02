@@ -8,57 +8,90 @@
 <head>
     <meta charset="utf-8" />
     <title>Hola Mundo!</title>
+    <style>
+        body {
+            min-height: 450px;
+            height: 100vh;
+            margin: 0;
+            background: url(https://www.elpais.com.co/files/articleType_breaking_news/uploads/2017/01/27/588b96017cf83.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body:before {
+            content: "";
+            width: 100%;
+            min-height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg,white,rgb(247, 168, 216));
+            opacity: 0.5;
+            z-index: -1;
+            height:100%;
+
+        }
+        .title {
+            color:darkgreen;
+        }
+    </style>
+
 </head>
-<body class="p-3 mb-2 bg-primary text-warning">
+<!--body class="p-3 mb-2 bg-primary text-warning"-->
+<body>
 
 
-    <h1 align="center">HOSPITAL EN CASA</h1>
-    <br />
-    <br />
+    
 
-    <p class="">
-        
-        <a asp-action="datosPersona" class="btn btn-primary" type="button">Datos Persona</a>
-        <a asp-action="CreatePersona" class="btn btn-primary" type="button">Registrarse</a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Login
-        </button>
+<h1 align="center" class=" title">HOSPITAL EN CASA</h1>
+<br />
+<br />
+
+<p class="">
+
+    <a asp-action="datosPersona" class="btn btn-primary" type="button">Datos Persona</a>
+    <a asp-action="CreatePersona" class="btn btn-primary" type="button">Registrarse</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Login
+    </button>
 
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 bg-primary text-warning">
+                    <div class="modal-body">
+
+                        @await Html.PartialAsync("CreateLogin")
                     </div>
-                    <div class="p-3 mb-2 bg-primary text-warning">
-                        <div class="modal-body">
+                    <div class="modal-footer">
 
-                            @await Html.PartialAsync("CreateLogin")
-                        </div>
-                        <div class="modal-footer">
-
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </p>
 
-    <h2><marquee> BIENVENIDOS A HOSPITAL EN CASA  </marquee></h2>
-    <br />
-    <br />
+    </div>
+</p>
 
-    <img src="@Url.Content("~/img/imagenc1.png")" width="500px" height="400px" alt="imgf" />
-    <img src="@Url.Content("~/img/imagenc8.png")" width="500px" height="400px" alt="imgf" />
+<h2 class=" title"><marquee> BIENVENIDOS A HOSPITAL EN CASA  </marquee></h2>
+<br />
+<br />
+
+<div align ="center"><img src="@Url.Content("~/img/imagenc1.png")" width="300px" height="200px" alt="imgf" /></div>
 
 
 
- 
+    
+
 
 
 

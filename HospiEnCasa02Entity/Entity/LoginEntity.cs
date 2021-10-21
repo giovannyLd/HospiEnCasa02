@@ -9,7 +9,7 @@ namespace HospiEnCasa02Entity.Entity
     public class LoginEntity
     {
 
-
+        public int Usuario { get; set; }
         public int Id { get; set; }
    
         public string Password { get; set; }

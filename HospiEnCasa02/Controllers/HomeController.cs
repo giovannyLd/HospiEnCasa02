@@ -1,4 +1,5 @@
-﻿using HospEnCasa02Login.Login;
+﻿using HospEnCasa02Login.DataBase;
+using HospEnCasa02Login.Login;
 using HospiEnCasa02.Models;
 using HospiEnCasa02Entity.Entity;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,7 @@ namespace HospiEnCasa02.Controllers
         private FamiliarDesignadoLogin familiarDesignadoLogin = new FamiliarDesignadoLogin();
         private LoginLogin loginLogin = new LoginLogin();
 
+        hospiCasa01Context hospiBD = new hospiCasa01Context();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -74,18 +76,45 @@ namespace HospiEnCasa02.Controllers
         public IActionResult CreateLogin(LoginEntity loginEntity)
         {
 
-            if (loginLogin.logueo(loginEntity)) 
+            //   if (loginLogin.logueo(loginEntity)) 
+            //   {
+
+            //       HttpContext.Session.SetString("token", loginEntity.Id.ToString());
+            //       return   RedirectToAction("CreatePersona", "Home" );
+            //   }
+            //   return RedirectToAction("Index", "Home");
+
+            ////   return RedirectToAction("Login", "Barbershop", routeValues: new { loginError = "El usuario no existe" });
+            var loginBaseDatos = hospiBD.Personas;
+
+            foreach (var LoginBD in loginBaseDatos)
             {
 
-                HttpContext.Session.SetString("token", loginEntity.Id.ToString());
-              return   RedirectToAction("CreatePersona", "Home" );
+                if (loginEntity.Id == LoginBD.Id && loginEntity.Usuario == 1)
+                {
+                    HttpContext.Session.SetString("token", loginEntity.Id.ToString());
+                    return RedirectToAction("VistaPaciente", "Home");
+                }
+                else if (loginEntity.Id == LoginBD.Id && loginEntity.Usuario == 2)
+                {
+                    HttpContext.Session.SetString("token", loginEntity.Id.ToString());
+                    return RedirectToAction("VistaMedico", "Home");
+                }
             }
             return RedirectToAction("Index", "Home");
 
-         //   return RedirectToAction("Login", "Barbershop", routeValues: new { loginError = "El usuario no existe" });
+        }
+        public IActionResult VistaPaciente()
+        {
 
+            return View();
         }
 
+        public IActionResult VistaMedico()
+        {
+
+            return View();
+        }
 
         public IActionResult CreatePaciente()
         {
